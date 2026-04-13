@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI CEO School &mdash; 12주 커리큘럼</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+  :root {
+    --dark: #1C1C1E;
+    --accent: #E8650A;
+    --accent-light: #FFF4EB;
+    --gray-50: #FAFAFA;
+    --gray-200: #E5E5E5;
+    --gray-400: #A3A3A3;
+    --gray-600: #525252;
+    --gray-800: #262626;
+    --white: #FFFFFF;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--white);
+    color: var(--gray-800);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+
+  /* Cover */
+  .cover {
+    background: var(--dark);
+    color: var(--white);
+    padding: 64px 40px 48px;
+    text-align: center;
+  }
+  .cover-badge {
+    display: inline-block;
+    border: 1.5px solid var(--accent);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 100px;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+  }
+  .cover h1 { font-size: 36px; font-weight: 800; line-height: 1.3; margin-bottom: 12px; }
+  .cover h1 span { color: var(--accent); }
+  .cover .subtitle { font-size: 16px; color: var(--gray-400); margin-bottom: 24px; }
+  .cover-meta { display: flex; justify-content: center; gap: 32px; font-size: 14px; color: var(--gray-400); }
+  .cover-meta strong { color: var(--white); font-weight: 600; }
+
+  /* Section */
+  .sec { padding: 48px 40px; }
+  .sec--alt { background: var(--gray-50); }
+  .sec-label {
+    font-size: 12px; font-weight: 700; color: var(--accent);
+    text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px;
+  }
+  .sec h2 { font-size: 24px; font-weight: 800; margin-bottom: 20px; }
+
+  /* Phase header */
+  .phase-section { margin-bottom: 40px; }
+  .phase-header {
+    display: flex; align-items: center; gap: 14px;
+    padding-bottom: 14px; border-bottom: 2px solid var(--accent);
+    margin-bottom: 20px;
+  }
+  .phase-badge {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    padding: 4px 12px; border-radius: 100px; letter-spacing: 0.3px;
+  }
+  .phase-badge--basic { background: #DBEAFE; color: #1D4ED8; }
+  .phase-badge--mid { background: var(--accent-light); color: var(--accent); }
+  .phase-badge--adv { background: #F3E8FF; color: #7C3AED; }
+  .phase-title { font-size: 20px; font-weight: 700; }
+  .phase-weeks { font-size: 14px; color: var(--gray-400); margin-left: auto; }
+
+  /* Session card */
+  .session {
+    background: var(--white); border: 1px solid var(--gray-200);
+    border-radius: 12px; padding: 24px; margin-bottom: 14px;
+  }
+  .sec--alt .session { background: var(--white); }
+  .session-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .session-week {
+    background: var(--accent-light); color: var(--accent);
+    font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 100px;
+  }
+  .session-title { font-size: 17px; font-weight: 700; color: var(--dark); }
+  .session-desc { font-size: 14px; color: var(--gray-600); margin-bottom: 14px; line-height: 1.6; }
+  .session-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .session-block h4 {
+    font-size: 12px; font-weight: 700; color: var(--gray-400);
+    text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;
+  }
+  .session-block ul { list-style: none; }
+  .session-block li {
+    font-size: 14px; color: var(--gray-600); padding: 4px 0 4px 18px; position: relative;
+  }
+  .session-block li::before {
+    content: "\25B8"; position: absolute; left: 0; color: var(--accent); font-size: 11px; top: 5px;
+  }
+
+  /* Timetable */
+  .tt-box {
+    background: var(--white); border: 1px solid var(--gray-200);
+    border-radius: 12px; overflow: hidden; margin-top: 16px;
+  }
+  .tt-header {
+    background: var(--dark); color: var(--white);
+    padding: 14px 20px; font-size: 14px; font-weight: 700;
+  }
+  .tt-row { display: flex; border-bottom: 1px solid var(--gray-200); }
+  .tt-row:last-child { border-bottom: none; }
+  .tt-time {
+    width: 120px; flex-shrink: 0; padding: 12px 16px;
+    background: var(--gray-50); font-size: 13px; font-weight: 600; color: var(--gray-600);
+  }
+  .tt-content { flex: 1; padding: 12px 16px; }
+  .tt-label { font-size: 14px; font-weight: 600; color: var(--dark); }
+  .tt-sub { font-size: 12px; color: var(--gray-400); margin-top: 2px; }
+
+  /* Note */
+  .note {
+    background: var(--accent-light); border-left: 4px solid var(--accent);
+    border-radius: 0 10px 10px 0; padding: 16px 20px; margin-top: 24px;
+  }
+  .note p { font-size: 14px; color: var(--gray-600); margin: 0; }
+  .note strong { color: var(--accent); }
+
+  .footer {
+    text-align: center; padding: 24px 40px;
+    font-size: 12px; color: var(--gray-400); border-top: 1px solid var(--gray-200);
+  }
+
+  @media (max-width: 640px) {
+    .cover { padding: 40px 24px 32px; }
+    .cover h1 { font-size: 26px; }
+    .cover-meta { flex-direction: column; gap: 8px; }
+    .sec { padding: 32px 20px; }
+    .session-grid { grid-template-columns: 1fr; }
+    .tt-time { width: 90px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <div class="container">
+    <div class="cover-badge">CURRICULUM v1.0</div>
+    <h1><span>AI CEO</span> School<br>12주 커리큘럼</h1>
+    <div class="subtitle">기초 &rarr; 중급 &rarr; 고급 &mdash; 이해하고, 체험하고, 도입한다</div>
+    <div class="cover-meta">
+      <span>총 <strong>12회</strong></span>
+      <span>주 1회 <strong>3시간</strong></span>
+      <span>저녁 <strong>18:00~21:00</strong></span>
+    </div>
+  </div>
+</section>
+
+<!-- 주차별 시간표 -->
+<section class="sec sec--alt">
+  <div class="container">
+    <div class="sec-label">Timetable</div>
+    <h2>매주 이렇게 운영합니다</h2>
+    <div class="tt-box">
+      <div class="tt-header">주차별 3시간 구성 &mdash; 강의 + 실습 + 네트워킹</div>
+      <div class="tt-row">
+        <div class="tt-time">18:00~18:10</div>
+        <div class="tt-content">
+          <div class="tt-label">Check-in &amp; 복습</div>
+          <div class="tt-sub">지난주 과제 공유, 궁금한 점 QnA</div>
+        </div>
+      </div>
+      <div class="tt-row">
+        <div class="tt-time">18:10~19:10</div>
+        <div class="tt-content">
+          <div class="tt-label">핵심 강의 (60분)</div>
+          <div class="tt-sub">해당 주차 주제 &mdash; CEO 언어로, 사례 중심으로</div>
+        </div>
+      </div>
+      <div class="tt-row">
+        <div class="tt-time">19:10~19:20</div>
+        <div class="tt-content">
+          <div class="tt-label">휴식</div>
+        </div>
+      </div>
+      <div class="tt-row">
+        <div class="tt-time">19:20~20:20</div>
+        <div class="tt-content">
+          <div class="tt-label">실습 &amp; 토론 (60분)</div>
+          <div class="tt-sub">Rona 플랫폼 실습 / 조별 토론 / 사례 분석</div>
+        </div>
+      </div>
+      <div class="tt-row">
+        <div class="tt-time">20:20~21:00</div>
+        <div class="tt-content">
+          <div class="tt-label">네트워킹 &amp; 과제 안내 (40분)</div>
+          <div class="tt-sub">CEO 간 자유 대화, 다음 주 과제 브리핑</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Phase 1: 기초 -->
+<section class="sec">
+  <div class="container">
+    <div class="phase-section">
+      <div class="phase-header">
+        <span class="phase-badge phase-badge--basic">BASIC</span>
+        <span class="phase-title">Phase 1 &mdash; AI 이해하기</span>
+        <span class="phase-weeks">1~4주</span>
+      </div>
+
+      <div class="session">
+        <div class="session-top">
+          <span class="session-week">Week 1</span>
+          <span class="session-title">AI가 뭔지 30분이면 됩니다</span>
+        </div>
+        <div class="session-desc">생성형 AI의 원리를 쉽게 이해하고, ChatGPT&middot;Claude&middot;Gemini를 직접 써봅니다. &ldquo;이게 왜 돈이 되는가&rdquo;를 경영자 관점에서 정리합니다.</div>
+        <div class="session-grid">
+          <div class="session-block">
+            <h4>학습 내용</h4>
+            <ul>
+              <li>LLM, 에이전트, MCP &mdash; 3가지만 알면 됩니다</li>
+              <li>산업별 AI 도입 현황과 성공/실패 사례</li>
+              <li>CEO 관점의 AI 투자 판단 프레임워크</li>
+            </ul>
+          </div>
+          <div class="session-block">
+            <h4>실습 / 과제</h4>
+            <ul>
+              <li>ChatGPT&middot;Claude 3개 업무 시나리오 직접 체험</li>
+              <li>[과제] 우리 회사 AI 도입 가능성 자가진단</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-top">
+          <span class="session-week">Week 2</span>
+          <span class="session-title">내 업무에 AI 붙이기</span>
+        </div>
+        <div class="session-desc">이메일 초안, 보고서 요약, 엑셀 데이터 정리 &mdash; 오늘 당장 쓸 수 있는 AI 활용법을 익힙니다.</div>
+        <div class="session-grid">
+          <div class="session-block">
+            <h4>학습 내용</h4>
+            <ul>
+              <li>CEO 일상 업무 5가지 AI 자동화</li>
+              <li>멀티모달 활용 (이미지, PDF, 음성)</li>
+              <li>AI 보안 &mdash; 넣어도 되는 데이터 vs 안 되는 데이터</li>
+            </ul>
+          </div>
+          <div class="session-block">
+            <h4>실습 / 과제</h4>
+            <ul>
+              <li>실제 업무 이메일 AI로 작성해보기</li>
+              <li>[과제] 이번 주 AI로 처리한 업무 1건 공유</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-top">
+          <span class="session-week">Week 3</span>
+          <span class="session-title">프롬프트의 기술</span>
+        </div>
+        <div class="session-desc">&ldquo;대충 물으면 대충 답한다&rdquo; &mdash; AI에게 일 잘 시키는 법, CEO를 위한 프롬프트 프레임워크.</div>
+        <div class="session-grid">
+          <div class="session-block">
+            <h4>학습 내용</h4>
+            <ul>
+              <li>프롬프트 설계 원칙 (역할, 맥락, 형식, 제약)</li>
+              <li>경영 보고서, 전략 분석, 회의록 프롬프트 패턴</li>
+              <li>AI에게 &ldquo;생각하게&rdquo; 만드는 기법</li>
+            </ul>
+          </div>
+          <div class="session-block">
+            <h4>실습 / 과제</h4>
+            <ul>
+              <li>경영 보고서 AI 작성 실습 (before/after)</li>
+              <li>[과제] 나만의 프롬프트 템플릿 3개 만들기</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-top">
+          <span class="session-week">Week 4</span>
+          <span class="session-title">우리 회사 데이터 + AI</span>
+        </div>
+        <div class="session-desc">엑셀, PDF, 사내 문서를 AI에 &ldquo;먹이는&rdquo; 방법. RAG 개념을 CEO 언어로 설명합니다.</div>
+        <div class="session-grid">
+          <div class="session-block">
+            <h4>학습 내용</h4>
+            <ul>
+              <li>RAG란? &mdash; &ldquo;회사 데이터를 아는 AI&rdquo; 만들기</li>
+              <li>사내 지식베이스 구축 전략</li>
+              <li>데이터 보안과 프라이버시 가이드라인</li>
+            </ul>
+          </div>
+          <div class="session-block">
+            <h4>실습 / 과제</h4>
+            <ul>
+              <li>회사 소개서 + AI = 맞춤 제안서 자동 생성</li>
+              <li>[과제] 우리 회사에 RAG 적용할 데이터 목록 정리</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Phase 2: 중급 -->
+<section class="sec sec--alt">
+  <div class="container">
+    <div class="phase-section">
+      <div class="phase-header">
+        <span class="phase-badge phase-badge--mid">INTERMEDIATE</span>
+        <span class="phase-title">Phase 2 &mdash; AI 체험하기</span>
+        <span class="phase-weeks">5~8주</span>
+      </div>
+
+      <div class="session">
+        <div class="session-top">
+          <span class="session-week">Week 5</span>
+          <span class="session-title">AI로 앱 만들기 &mdash; 바이브코딩 입문</span>
+        </div>
+        <div class="session-desc">코드 한 줄 몰라도 OK. <strong>Rona</strong> 플랫폼으로 채팅만 하면 업무용 AI 앱이 만들어집니다.</div>
+        <div class="session-grid">
+          <div class="session-block">
+            <h4>학습 내용</h4>
+            <ul>
+              <li>바이브코딩이란? &mdash; 비개발자도 만드는 시대</li>
+              <li>Rona 플랫폼 사용법</li>
+              <li>Cursor, Bolt, Lovable 등 도구 비교</li>
+            </ul>
+          </div>
+          <div class="session-block">
+            <h4>실습 / 과제</h4>
+            <ul>
+              <li>Rona로 고객 문의 정리 도구 30분 만들기</li>
+              <li>[과제] 우리 회사 업무 도구 프로토타입 1개</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-top">
+          <span class="session-week">Week 6</span>
+          <span class="session-title">업무 자동화 설계</span>
+        </div>
+        <div class="session-desc">반복 업무를 AI 워크플로우로 바꾸는 방법. Dify&middot;n8n 등 실제 자동화 시나리오 3가지를 실습합니다.</div>
+        <div class="session-grid">
+          <div class="session-block">
+            <h4>학습 내용</h4>
+            <ul>
+              <li>업무 프로세스 분석 &amp; 자동화 설계</li>
+              <li>Make/Zapier/n8n/Dify 비교</li>
+              <li>AI + 자동화 조합 시나리오</li>
+            </ul>
+          </div>
+          <div class="session-block">
+            <h4>실습 / 과제</h4>
+            <ul>
+              <li>실제 업무 1개 자동화 파이프라인 구축</li>
+              <li>[과제] ROI 산출 &mdash; 이 자동화로 연 몇 시간 절감?</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-top">
+          <span class="session-week">Week 7</span>
+          <span class="session-title">AI 에이전트란 무엇인가</span>
+        </div>
+        <div class="session-desc">&ldquo;시키면 알아서 하는 AI&rdquo; &mdash; 에이전트 개념과 현실적으로 가능한 것 vs 마케팅 과장을 구분합니다.</div>
+        <div class="session-grid">
+          <div class="session-block">
+            <h4>학습 내용</h4>
+            <ul>
+              <li>AI 에이전트 vs 챗봇 vs RPA</li>
+              <li>MCP(Model Context Protocol) 개념</li>
+              <li>에이전트 활용 실제 비즈니스 사례</li>
+            </ul>
+          </div>
+          <div class="session-block">
+            <h4>실습 / 과제</h4>
+            <ul>
+              <li>노코드 에이전트 빌더 체험</li>
+              <li>[과제] 우리 회사 에이전트 도입 후보 업무 3개 선정</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-top">
+          <span class="session-week">Week 8</span>
+          <span class="session-title">산업별 AI 도입 사례</span>
+        </div>
+        <div class="session-desc">제조&middot;유통&middot;서비스&middot;건설 &mdash; 업종별 실제 도입 사례와 성과를 분석합니다. 게스트 CEO 강연 포함.</div>
+        <div class="session-grid">
+          <div class="session-block">
+            <h4>학습 내용</h4>
+            <ul>
+              <li>업종별 AI 도입 Best Practice 10선</li>
+              <li>실패 사례에서 배우는 교훈</li>
+              <li>게스트 CEO 특강 &amp; 패널 토론</li>
+            </ul>
+          </div>
+          <div class="session-block">
+            <h4>실습 / 과제</h4>
+            <ul>
+              <li>우리 업종 AI 도입 벤치마크 정리</li>
+              <li>[과제] 경쟁사 AI 도입 현황 리서치</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Phase 3: 고급 -->
+<section class="sec">
+  <div class="container">
+    <div class="phase-section">
+      <div class="phase-header">
+        <span class="phase-badge phase-badge--adv">ADVANCED</span>
+        <span class="phase-title">Phase 3 &mdash; AI 도입하기</span>
+        <span class="phase-weeks">9~12주</span>
+      </div>
+
+      <div class="session">
+        <div class="session-top">
+          <span class="session-week">Week 9</span>
+          <span class="session-title">AI 도입 ROI 계산법</span>
+        </div>
+        <div class="session-desc">경영자의 언어로 AI 투자 대비 효과를 계산하고, 이사회에 보고하는 프레임을 익힙니다.</div>
+        <div class="session-grid">
+          <div class="session-block">
+            <h4>학습 내용</h4>
+            <ul>
+              <li>AI 투자 ROI 산출 프레임워크</li>
+              <li>비용 구조: SaaS vs API vs 자체 개발</li>
+              <li>단계별 투자 로드맵 설계</li>
+            </ul>
+          </div>
+          <div class="session-block">
+            <h4>실습 / 과제</h4>
+            <ul>
+              <li>우리 회사 AI 투자 ROI 시뮬레이션</li>
+              <li>[과제] 이사회 보고용 AI 투자안 1페이지 작성</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-top">
+          <span class="session-week">Week 10</span>
+          <span class="session-title">AI 시대의 조직 설계</span>
+        </div>
+        <div class="session-desc">AI 전담팀을 만들 것인가, 전사에 녹일 것인가. 채용, 육성, 변화 관리 전략을 다룹니다.</div>
+        <div class="session-grid">
+          <div class="session-block">
+            <h4>학습 내용</h4>
+            <ul>
+              <li>AI 조직 모델 3가지 비교</li>
+              <li>AI 인재 확보 &amp; JD 작성법</li>
+              <li>직원 저항 극복 &mdash; 변화 관리 전략</li>
+            </ul>
+          </div>
+          <div class="session-block">
+            <h4>실습 / 과제</h4>
+            <ul>
+              <li>AI 직무 기술서(JD) 작성 실습</li>
+              <li>[과제] 우리 회사 AI 조직 청사진 초안</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-top">
+          <span class="session-week">Week 11</span>
+          <span class="session-title">리스크 &amp; 거버넌스</span>
+        </div>
+        <div class="session-desc">데이터 보안, 저작권, 환각(hallucination), 규제 동향 &mdash; CEO가 꼭 알아야 할 리스크를 정리합니다.</div>
+        <div class="session-grid">
+          <div class="session-block">
+            <h4>학습 내용</h4>
+            <ul>
+              <li>AI 사용 가이드라인 &amp; 정책 수립</li>
+              <li>데이터 보안 &amp; 개인정보 보호</li>
+              <li>저작권, 환각, 편향 &mdash; 법적 리스크</li>
+            </ul>
+          </div>
+          <div class="session-block">
+            <h4>실습 / 과제</h4>
+            <ul>
+              <li>우리 회사 AI 사용 가이드라인 초안 작성</li>
+              <li>[과제] AI 도입 로드맵 최종안 준비 (12주차 발표용)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-top">
+          <span class="session-week">Week 12</span>
+          <span class="session-title">우리 회사 AI 도입 로드맵 발표</span>
+        </div>
+        <div class="session-desc">12주 동안 설계한 &ldquo;우리 회사 AI 도입 계획서&rdquo;를 발표하고, 전문가 피드백을 받습니다.</div>
+        <div class="session-grid">
+          <div class="session-block">
+            <h4>발표 내용</h4>
+            <ul>
+              <li>AI 도입 목적 &amp; 목표</li>
+              <li>우선 적용 업무 &amp; 예상 효과</li>
+              <li>3/6/12개월 실행 로드맵</li>
+              <li>필요 예산 &amp; 인력</li>
+            </ul>
+          </div>
+          <div class="session-block">
+            <h4>수료 프로그램</h4>
+            <ul>
+              <li>전문가 패널 피드백 &amp; 멘토링</li>
+              <li>우수 발표 시상</li>
+              <li>수료증 수여</li>
+              <li>AI CEO 동문 네트워크 가입</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Note -->
+<section class="sec sec--alt">
+  <div class="container">
+    <div class="note">
+      <p><strong>Note</strong> &mdash; 본 커리큘럼은 초안이며, 인텔리빅스 측 피드백 및 수강생 사전 설문 결과에 따라 조정됩니다. Rona 플랫폼은 Week 5 이후 전 회차 실습에 활용됩니다.</p>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  &copy; 2026 GPTers &middot; AI CEO School Curriculum &middot; Confidential
+</div>
+
+</body>
+</html>
