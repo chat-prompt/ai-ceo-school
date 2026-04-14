@@ -197,6 +197,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 24px;
     margin-top: 8px;
+    align-items: center;
   }
   .col-card {
     background: var(--white);
@@ -442,6 +443,218 @@
     .tt-grid { grid-template-columns: 80px repeat(4, 1fr); font-size: 11px; }
     .tt-grid .tt-cell { padding: 8px; }
   }
+
+  /* ─── Design Enhancement Layer ─── */
+  html { scroll-behavior: smooth; }
+
+  /* Cover: gradient mesh + glow orb */
+  .cover {
+    background: linear-gradient(160deg, #1C1C1E 0%, #252528 40%, #1C1C1E 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(232,101,10,0.10) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -15%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(232,101,10,0.06) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .cover .container { position: relative; z-index: 1; }
+  .cover-badge {
+    animation: fadeDown 0.6s ease both;
+  }
+  .cover h1 {
+    animation: fadeDown 0.6s ease 0.1s both;
+  }
+  .cover .subtitle {
+    animation: fadeDown 0.6s ease 0.2s both;
+  }
+  .cover-meta {
+    animation: fadeDown 0.6s ease 0.3s both;
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-child {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.5s cubic-bezier(0.22,1,0.36,1);
+  }
+  .reveal.visible .reveal-child {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal.visible .reveal-child:nth-child(1) { transition-delay: 0.05s; }
+  .reveal.visible .reveal-child:nth-child(2) { transition-delay: 0.10s; }
+  .reveal.visible .reveal-child:nth-child(3) { transition-delay: 0.15s; }
+  .reveal.visible .reveal-child:nth-child(4) { transition-delay: 0.20s; }
+  .reveal.visible .reveal-child:nth-child(5) { transition-delay: 0.25s; }
+  .reveal.visible .reveal-child:nth-child(6) { transition-delay: 0.30s; }
+
+  /* Section label accent line */
+  .sec-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .sec-label::after {
+    content: '';
+    width: 32px;
+    height: 1.5px;
+    background: var(--accent);
+    opacity: 0.5;
+    display: inline-block;
+  }
+
+  /* Card polish */
+  .col-card, .ov-card, .port-card {
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;
+  }
+  .col-card:hover, .ov-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  }
+  .sec--dark .col-card:hover, .port-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+  }
+
+  /* Stats glow */
+  .stat-item .num {
+    text-shadow: 0 0 40px rgba(232,101,10,0.25);
+  }
+  .stats-bar {
+    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(232,101,10,0.04) 100%);
+  }
+
+  /* Dark section depth */
+  .sec--dark {
+    background: linear-gradient(160deg, #1C1C1E 0%, #222226 50%, #1C1C1E 100%);
+    position: relative;
+  }
+
+  /* Feature list hover */
+  .feat-list li {
+    transition: padding-left 0.25s ease, background 0.25s ease;
+    border-radius: 6px;
+    padding-right: 8px;
+  }
+  .feat-list li:hover {
+    padding-left: 10px;
+    background: rgba(232,101,10,0.04);
+  }
+  .sec--dark .feat-list li:hover {
+    background: rgba(255,255,255,0.04);
+  }
+
+  /* Curriculum table row hover */
+  .cur-table tbody tr {
+    transition: background 0.2s ease;
+  }
+  .cur-table tbody tr:hover {
+    background: rgba(232,101,10,0.04);
+  }
+
+  /* Price box premium */
+  .price-box {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #FFF8F2 0%, var(--accent-light) 100%);
+  }
+  .price-box .amount {
+    background: linear-gradient(135deg, var(--dark) 0%, #3a3a3e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* CTA glow */
+  .cta-sec {
+    background: linear-gradient(160deg, #1C1C1E 0%, #252528 50%, #1C1C1E 100%);
+  }
+  .cta-btn {
+    box-shadow: 0 4px 24px rgba(232,101,10,0.35);
+    transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+    position: relative;
+  }
+  .cta-btn:hover {
+    opacity: 1;
+    box-shadow: 0 8px 36px rgba(232,101,10,0.5);
+    transform: translateY(-2px);
+  }
+
+  /* Timeline cards hover */
+  .tl-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .tl-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(232,101,10,0.1);
+  }
+
+  /* Overview card accent top border on hover */
+  .ov-card {
+    border-top: 2px solid transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .ov-card:hover {
+    border-top-color: var(--accent);
+  }
+
+  /* Divider accent */
+  .footer {
+    position: relative;
+  }
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--accent);
+    opacity: 0.3;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--gray-50); }
+  ::-webkit-scrollbar-thumb { background: var(--gray-400); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 700px) {
+    .cover::before, .cover::after { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -451,10 +664,10 @@
   <div class="container">
     <div class="cover-badge">PROPOSAL 2026</div>
     <h1><span>AI CEO</span> 스쿨<br>교육 과정 제안서</h1>
-    <p class="subtitle">중소&middot;중견기업 CEO&middot;임원을 위한 실전 AI 활용 교육 프로그램</p>
+    <p class="subtitle">중소&middot;중견기업 CEO&middot;임원을 위한 실행형 AI 교육 프로그램</p>
     <div class="cover-meta">
       <span>제안사 &mdash; <strong>GPTers</strong></span>
-      <span>협력 &mdash; <strong>인텔리빅스</strong></span>
+      <span>대상 &mdash; <strong>중소기업중앙회</strong></span>
       <span>날짜 &mdash; <strong>2026. 04</strong></span>
     </div>
   </div>
@@ -476,11 +689,7 @@
       </li>
       <li>
         <span class="bullet">&#9654;</span>
-        <span><strong>CEO가 바뀌면 조직이 바뀐다</strong> &mdash; 실무자만 교육하면 도입 결재가 나지 않습니다. CEO부터 시작해야 전사 확산이 가능합니다</span>
-      </li>
-      <li>
-        <span class="bullet">&#9654;</span>
-        <span><strong>중소기업중앙회 회원 ~900만</strong> &mdash; 검증된 AI 교육을 찾는 CEO 수요가 폭발적으로 증가하고 있습니다</span>
+        <span><strong>CEO가 바뀌면 조직이 바뀐다</strong> &mdash; 실무자만 교육하면 도입 결재가 나지 않습니다. CEO가 직접 체험하고 판단해야 전사 확산이 가능합니다</span>
       </li>
     </ul>
   </div>
@@ -493,20 +702,20 @@
     <h2>GPTers 기업교육 실적</h2>
     <div class="stats-bar">
       <div class="stat-item">
-        <div class="num">14<small>건+</small></div>
-        <div class="txt">2026년 수행 과정</div>
+        <div class="num">4.7<small>/5.0</small></div>
+        <div class="txt">참가자 평균 만족도</div>
       </div>
       <div class="stat-item">
-        <div class="num">2.7<small>억+</small></div>
-        <div class="txt">연간 교육 매출</div>
+        <div class="num">87<small>%</small></div>
+        <div class="txt">3개월 후 지속 활용률</div>
       </div>
       <div class="stat-item">
-        <div class="num">10<small>개+</small></div>
-        <div class="txt">거래 기업</div>
+        <div class="num">7천<small>명+</small></div>
+        <div class="txt">누적 참가자</div>
       </div>
       <div class="stat-item">
-        <div class="num">300<small>명+</small></div>
-        <div class="txt">연간 교육생</div>
+        <div class="num">1만<small>개+</small></div>
+        <div class="txt">참가자가 만들어낸 사례</div>
       </div>
     </div>
 
@@ -542,9 +751,6 @@
         <p style="color:var(--gray-400);">비전 워크샵, 바이브코딩 실습 등 다양한 기업 대상 맞춤 교육</p>
       </div>
     </div>
-    <p style="margin-top: 16px; font-size: 13px; text-align: center;">
-      <a href="https://gpters-b2b.vercel.app/" target="_blank" style="color: var(--accent);">전체 포트폴리오 보기 &rarr;</a>
-    </p>
   </div>
 </section>
 
@@ -572,10 +778,25 @@
       </div>
     </div>
     <div style="margin-top: 20px;">
-      <p><strong>시간:</strong> 매주 1회, 저녁 18:00 ~ 21:00 (3시간)</p>
+      <p><strong>시간:</strong> 매주 수요일, 저녁 19:00 ~ 21:30 (2시간 30분)</p>
       <p><strong>목표 시작:</strong> 2026년 6월</p>
       <p><strong>장소:</strong> 서울 중심부 (협의)</p>
     </div>
+  </div>
+</section>
+
+<!-- 교육 철학 -->
+<section class="sec">
+  <div class="container">
+    <div class="sec-label">Philosophy</div>
+    <h2>실행형 커리큘럼</h2>
+    <p style="margin-bottom:20px; font-size:17px; font-weight:600; color:var(--dark);">"12주 후 계획을 발표하는 것이 아니라, 12주 동안 실행한 결과를 발표한다"</p>
+    <ul class="feat-list">
+      <li><span class="bullet">&#9654;</span><span><strong>단계별 AI 활용</strong> &mdash; 프롬프트 활용부터 바이브코딩, 조직 확산까지 점진적으로 역량을 쌓아갑니다</span></li>
+      <li><span class="bullet">&#9654;</span><span><strong>수업 내 산출물 완성</strong> &mdash; 숙제 없음. 매주 마지막 40분에 템플릿 기반으로 수업 안에서 완성합니다</span></li>
+      <li><span class="bullet">&#9654;</span><span><strong>체계적 실행 관리</strong> &mdash; 소그룹 상호 점검, 1:1 짝 체크인, 누적 산출물 구조로 실행을 보장합니다</span></li>
+      <li><span class="bullet">&#9654;</span><span><strong>2회 공식 발표</strong> &mdash; 8주차 중간 현황 + 12주차 최종 결과. 실제 조직 적용 결과를 발표합니다</span></li>
+    </ul>
   </div>
 </section>
 
@@ -584,160 +805,121 @@
   <div class="container">
     <div class="sec-label">Curriculum</div>
     <h2>12주 커리큘럼</h2>
-    <p style="margin-bottom: 20px; color: var(--gray-600);">기초 &rarr; 중급 &rarr; 고급, 3단계로 CEO가 AI를 &ldquo;이해&rdquo;하고 &ldquo;판단&rdquo;하고 &ldquo;도입&rdquo;할 수 있도록 설계했습니다.</p>
+    <p style="margin-bottom: 20px; color: var(--gray-600);">판단하고 &rarr; 만들고 &rarr; 실행한다. 3단계로 CEO가 AI를 &ldquo;판단&rdquo;하고 &ldquo;체험&rdquo;하고 &ldquo;실행&rdquo;할 수 있도록 설계했습니다.</p>
 
     <table class="cur-table">
       <thead>
         <tr>
           <th style="width:60px;">회차</th>
-          <th style="width:90px;">단계</th>
+          <th style="width:130px;">단계</th>
           <th>내용</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>1</td>
-          <td><span class="phase phase--basic">기초</span></td>
+          <td><span class="phase phase--basic">AI 리더의 눈</span></td>
           <td>
-            <div class="topic">AI가 뭔지 30분이면 됩니다</div>
-            <div class="desc">생성 AI의 원리, ChatGPT&middot;Claude&middot;Gemini 비교 체험, &ldquo;이게 왜 돈이 되는가&rdquo;</div>
+            <div class="topic">AI 시대, CEO의 판단력</div>
+            <div class="desc">생성형 AI의 큰 그림, &ldquo;구축/구매/무시&rdquo; CEO 판단 프레임워크</div>
           </td>
         </tr>
         <tr>
           <td>2</td>
-          <td><span class="phase phase--basic">기초</span></td>
+          <td><span class="phase phase--basic">AI 리더의 눈</span></td>
           <td>
-            <div class="topic">내 업무에 AI 붙이기</div>
-            <div class="desc">이메일 초안, 보고서 요약, 데이터 정리 &mdash; 오늘 당장 쓸 수 있는 활용법</div>
+            <div class="topic">AI Native 기업은 이렇게 일한다</div>
+            <div class="desc">국내 AI 선도 기업 사례 + AI 에이전트 사례 + 네트워킹</div>
           </td>
         </tr>
         <tr>
           <td>3</td>
-          <td><span class="phase phase--basic">기초</span></td>
+          <td><span class="phase phase--basic">AI 리더의 눈</span></td>
           <td>
-            <div class="topic">프롬프트의 기술</div>
-            <div class="desc">AI에게 일 잘 시키는 법. &ldquo;대충 물으면 대충 답한다&rdquo; &mdash; CEO를 위한 프롬프트 프레임워크</div>
+            <div class="topic">AI의 가능성과 한계 + 활용 가이드</div>
+            <div class="desc">리스크&middot;거버넌스 + AI 활용 단계별 가이드 + 프롬프트 실전</div>
           </td>
         </tr>
         <tr>
           <td>4</td>
-          <td><span class="phase phase--basic">기초</span></td>
+          <td><span class="phase phase--basic">AI 리더의 눈</span></td>
           <td>
-            <div class="topic">우리 회사 데이터 + AI</div>
-            <div class="desc">엑셀&middot;PDF&middot;사내 문서를 AI에 먹이는 방법, RAG 개념을 CEO 언어로</div>
+            <div class="topic">바이브코딩 첫 체험 + 실행 계획</div>
+            <div class="desc">Google AI Studio 바이브코딩 실습 + AI 적용 업무 확정 + 실행 계획</div>
           </td>
         </tr>
         <tr>
           <td>5</td>
-          <td><span class="phase phase--mid">중급</span></td>
+          <td><span class="phase phase--mid">도구와 실전 적용</span></td>
           <td>
-            <div class="topic">AI로 앱 만들기 &mdash; 바이브코딩 입문</div>
-            <div class="desc">코드 한 줄 몰라도 OK. Rona 플랫폼으로 채팅만으로 업무용 AI 앱 만들기 실습</div>
+            <div class="topic">Cowork + MCP &mdash; 데스크탑 바이브코딩</div>
+            <div class="desc">Claude 데스크탑앱 + 외부 도구 연결(MCP)로 프로토타입 제작</div>
           </td>
         </tr>
         <tr>
           <td>6</td>
-          <td><span class="phase phase--mid">중급</span></td>
+          <td><span class="phase phase--mid">도구와 실전 적용</span></td>
           <td>
-            <div class="topic">업무 자동화 설계</div>
-            <div class="desc">반복 업무를 AI 워크플로우로 바꾸는 방법. Dify&middot;n8n 등 실제 자동화 시나리오 3가지 실습</div>
+            <div class="topic">Claude Code + 에이전트</div>
+            <div class="desc">CLI 바이브코딩 + &ldquo;시키면 알아서 하는&rdquo; 자율 실행 에이전트</div>
           </td>
         </tr>
         <tr>
           <td>7</td>
-          <td><span class="phase phase--mid">중급</span></td>
+          <td><span class="phase phase--mid">도구와 실전 적용</span></td>
           <td>
-            <div class="topic">AI 에이전트란 무엇인가</div>
-            <div class="desc">&ldquo;시키면 알아서 하는 AI&rdquo; &mdash; 에이전트 개념, 현실적으로 가능한 것 vs 마케팅 과장</div>
+            <div class="topic">조직 자산화 + ROI</div>
+            <div class="desc">AI 업무 자동화를 조직 전체로 확산하는 구조 + 실측 ROI 산출</div>
           </td>
         </tr>
         <tr>
           <td>8</td>
-          <td><span class="phase phase--mid">중급</span></td>
+          <td><span class="phase phase--mid">도구와 실전 적용</span></td>
           <td>
-            <div class="topic">산업별 AI 도입 사례</div>
-            <div class="desc">제조&middot;유통&middot;서비스&middot;건설 &mdash; 업종별 실제 도입 사례와 성과 분석. 게스트 CEO 강연</div>
+            <div class="topic">중간 현황 발표</div>
+            <div class="desc">1개월간 조직 적용 결과 발표 + 피어 피드백 [발표]</div>
           </td>
         </tr>
         <tr>
           <td>9</td>
-          <td><span class="phase phase--adv">고급</span></td>
+          <td><span class="phase phase--adv">완성과 확산</span></td>
           <td>
-            <div class="topic">AI 도입 ROI 계산법</div>
-            <div class="desc">경영자의 언어로 AI 투자 대비 효과를 계산하고, 이사회에 보고하는 프레임</div>
+            <div class="topic">프로토타입 개선 + 게스트 CEO</div>
+            <div class="desc">피드백 반영 개선 + AI 도입 성공 CEO 특강 + 네트워킹</div>
           </td>
         </tr>
         <tr>
           <td>10</td>
-          <td><span class="phase phase--adv">고급</span></td>
+          <td><span class="phase phase--adv">완성과 확산</span></td>
           <td>
-            <div class="topic">AI 시대의 조직 설계</div>
-            <div class="desc">AI 담당 조직을 만들 것인가, 전사에 녹일 것인가 &mdash; 조직 변화 관리 전략</div>
+            <div class="topic">조직 전파 &mdash; 회고와 전략</div>
+            <div class="desc">전파 시도 회고 + 수정된 로드맵 설계 (경험 기반)</div>
           </td>
         </tr>
         <tr>
           <td>11</td>
-          <td><span class="phase phase--adv">고급</span></td>
+          <td><span class="phase phase--adv">완성과 확산</span></td>
           <td>
-            <div class="topic">리스크 &amp; 거버넌스</div>
-            <div class="desc">데이터 보안, 저작권, 환각(hallucination), 규제 동향 &mdash; CEO가 알아야 할 리스크</div>
+            <div class="topic">발표 리허설 + 피어 리뷰</div>
+            <div class="desc">CEO끼리 AI 전환 계획을 리뷰하고 보강</div>
           </td>
         </tr>
         <tr>
           <td>12</td>
-          <td><span class="phase phase--adv">고급</span></td>
+          <td><span class="phase phase--adv">완성과 확산</span></td>
           <td>
-            <div class="topic">우리 회사 AI 도입 로드맵 발표</div>
-            <div class="desc">12주 동안 설계한 &ldquo;우리 회사 AI 도입 계획서&rdquo; 발표 + 피드백 + 수료식</div>
+            <div class="topic">최종 발표 + 수료</div>
+            <div class="desc">3개월 AI 전환 결과 발표 + 시상 + 수료식 + 네트워킹 디너</div>
           </td>
         </tr>
       </tbody>
     </table>
+    <p style="margin-top: 20px; text-align: center;">
+      <a href="curriculum.html" style="color:var(--accent); text-decoration:none; font-weight:600; font-size:15px;">상세 커리큘럼 보기 &rarr;</a>
+    </p>
   </div>
 </section>
 
-<!-- 시간표 샘플 -->
-<section class="sec sec--alt">
-  <div class="container">
-    <div class="sec-label">Timetable Sample</div>
-    <h2>주차별 3시간 운영 구성</h2>
-    <p style="margin-bottom: 16px; color: var(--gray-600);">매주 저녁, 동일한 구조로 운영합니다. 강의 &rarr; 실습 &rarr; 네트워킹 순서로 집중도를 유지합니다.</p>
-    <div class="tt-sample">
-      <div class="tt-header">AI CEO 스쿨 &mdash; 주차별 시간표 (저녁 18:00~21:00)</div>
-      <div class="tt-grid">
-        <div class="tt-cell tt-time">18:00~18:10</div>
-        <div class="tt-cell" style="grid-column: span 4;">
-          <div class="tt-label">Check-in &amp; 복습</div>
-          <div class="tt-sub">지난주 과제 공유, 궁금한 점 QnA</div>
-        </div>
-
-        <div class="tt-cell tt-time">18:10~19:10</div>
-        <div class="tt-cell" style="grid-column: span 4;">
-          <div class="tt-label">핵심 강의 (60분)</div>
-          <div class="tt-sub">해당 주차 주제 &mdash; CEO가 이해할 수 있는 언어로, 사례 중심으로</div>
-        </div>
-
-        <div class="tt-cell tt-time">19:10~19:20</div>
-        <div class="tt-cell" style="grid-column: span 4;">
-          <div class="tt-label">휴식</div>
-          <div class="tt-sub"></div>
-        </div>
-
-        <div class="tt-cell tt-time">19:20~20:20</div>
-        <div class="tt-cell" style="grid-column: span 4;">
-          <div class="tt-label">실습 &amp; 토론 (60분)</div>
-          <div class="tt-sub">Rona 플랫폼 실습 / 조별 토론 / 사례 분석. 코치 1:25 밀착 지원</div>
-        </div>
-
-        <div class="tt-cell tt-time">20:20~21:00</div>
-        <div class="tt-cell" style="grid-column: span 4;">
-          <div class="tt-label">네트워킹 &amp; 과제 안내</div>
-          <div class="tt-sub">CEO 간 자유 대화, 다음 주 과제 브리핑</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- 차별점 -->
 <section class="sec sec--dark">
@@ -746,11 +928,11 @@
     <h2>왜 GPTers인가</h2>
     <div class="two-col">
       <div class="col-card">
-        <h3>&#9654; 실전 중심</h3>
+        <h3>&#9654; 실행형 교육</h3>
         <ul>
-          <li>이론 30% + 실습 70%</li>
-          <li>매 회차 &ldquo;오늘 배운 것&rdquo; 바로 실습</li>
-          <li>Rona 플랫폼으로 코드 없이 AI 앱 제작</li>
+          <li>12주 동안 배우면서 동시에 실행</li>
+          <li>3주차부터 AI 활용 시작, 8주차 중간 발표, 12주차 최종</li>
+          <li>숙제 없이 매주 수업 내 산출물 완성</li>
         </ul>
       </div>
       <div class="col-card">
@@ -772,8 +954,7 @@
       <div class="col-card">
         <h3>&#9654; 사후 지원</h3>
         <ul>
-          <li>수료 후 AI 도입 자문 1회 제공</li>
-          <li>수료생 전용 커뮤니티 운영</li>
+          <li>AI CEO 동문 네트워크 운영</li>
           <li>분기별 AI 트렌드 리포트 공유</li>
         </ul>
       </div>
@@ -798,9 +979,9 @@
       <div class="col-card">
         <h3>부가 운영</h3>
         <ul>
-          <li>게스트 강연자 &mdash; 월 1회, 산업계 CEO</li>
-          <li>Rona 기술 지원 &mdash; 실습 환경 세팅</li>
-          <li>교육 자료 &amp; 시간표 자동 생성 시스템</li>
+          <li>게스트 CEO 강연 &mdash; 9주차, AI 도입 성공 사례</li>
+          <li>AI 실습 플랫폼 &mdash; 실습 환경 세팅 + 단계별 가이드</li>
+          <li>퍼실리테이터 &mdash; 그룹 토론&middot;네트워킹 진행</li>
         </ul>
       </div>
     </div>
@@ -846,22 +1027,21 @@
     <div class="two-col">
       <div class="price-box">
         <div style="font-size:14px; color:var(--gray-600); margin-bottom:8px;">1인당 참가비</div>
-        <div class="amount">150<small>만원</small></div>
-        <div class="note">12회 &times; 3시간 = 총 36시간<br>1시간당 약 4.2만원</div>
+        <div class="amount">290<small>만원</small></div>
+        <div class="note">12회 &times; 2.5시간 = 총 30시간</div>
       </div>
       <div style="padding: 20px 0;">
         <p style="margin-bottom: 12px;"><strong>포함 사항:</strong></p>
         <ul class="feat-list" style="margin-top:0;">
           <li><span class="bullet">&#9654;</span><span>전 회차 교육 참석</span></li>
-          <li><span class="bullet">&#9654;</span><span>Rona 플랫폼 3개월 이용권</span></li>
+          <li><span class="bullet">&#9654;</span><span>AI 실습 플랫폼 3개월 이용권</span></li>
           <li><span class="bullet">&#9654;</span><span>실습 자료 &amp; 템플릿 제공</span></li>
-          <li><span class="bullet">&#9654;</span><span>수료 후 AI 도입 자문 1회</span></li>
-          <li><span class="bullet">&#9654;</span><span>수료생 커뮤니티 영구 가입</span></li>
+          <li><span class="bullet">&#9654;</span><span>AI CEO 동문 네트워크 영구 가입</span></li>
         </ul>
       </div>
     </div>
     <p style="margin-top: 16px; font-size: 13px; color: var(--gray-400);">
-      * 50명 기준 총 매출 7,500만원 / 단체 할인, 얼리버드 할인 등 별도 협의 가능
+      * 단체 할인, 얼리버드 할인 등 별도 협의 가능
     </p>
   </div>
 </section>
@@ -874,11 +1054,11 @@
     <ul class="feat-list">
       <li>
         <span class="bullet">&#9654;</span>
-        <span><strong>즉시 활용</strong> &mdash; 수강 첫 주부터 본인 업무에 AI를 적용할 수 있습니다</span>
+        <span><strong>즉시 활용</strong> &mdash; 초반부터 조직에 AI 활용을 시작합니다. 수업에서 배운 것을 바로 실행합니다</span>
       </li>
       <li>
         <span class="bullet">&#9654;</span>
-        <span><strong>전사 확산</strong> &mdash; CEO가 직접 체험한 뒤 조직 도입을 결정하면, 실무자 교육이 자연스럽게 따라옵니다</span>
+        <span><strong>실제 결과</strong> &mdash; 12주 후 &ldquo;계획서&rdquo;가 아닌 &ldquo;실행 결과&rdquo;를 발표합니다. 실측 ROI 포함</span>
       </li>
       <li>
         <span class="bullet">&#9654;</span>
@@ -886,33 +1066,33 @@
       </li>
       <li>
         <span class="bullet">&#9654;</span>
-        <span><strong>AI 도입 로드맵</strong> &mdash; 12주 과정의 최종 산출물로 &ldquo;우리 회사 AI 도입 계획서&rdquo;를 완성합니다</span>
+        <span><strong>조직 확산 구조</strong> &mdash; CEO 한 사람의 경험이 AI 업무 자동화를 통해 조직 전체의 자산이 됩니다</span>
       </li>
     </ul>
   </div>
 </section>
 
-<!-- Rona 연계 -->
+<!-- AI 실습 플랫폼 -->
 <section class="sec">
   <div class="container">
     <div class="sec-label">Platform</div>
-    <h2>실습 플랫폼 &mdash; Rona</h2>
-    <p style="margin-bottom: 16px;">교육 중 실습은 <a href="https://rona.so" target="_blank" style="color:var(--accent); text-decoration:none; font-weight:600;">Rona</a> 플랫폼을 활용합니다. 별도 설치나 구독 없이, 채팅만으로 AI 앱을 만들 수 있습니다.</p>
+    <h2>AI 실습 플랫폼</h2>
+    <p style="margin-bottom: 16px;">교육 중 실습은 <a href="https://rona.so" target="_blank" style="color:var(--accent); text-decoration:none; font-weight:600;">AI 실습 플랫폼</a>을 활용합니다. AI 튜터가 단계별로 가이드하며, 별도 설치 없이 바로 시작할 수 있습니다.</p>
     <div class="two-col">
       <div class="col-card">
         <h3>교육 중 활용</h3>
         <ul>
-          <li>5주차 바이브코딩 실습 메인 도구</li>
-          <li>6주차 업무 자동화 시나리오 제작</li>
-          <li>12주차 최종 프로젝트 제작 &amp; 발표</li>
+          <li>Cowork 바이브코딩 실습</li>
+          <li>Claude Code 체험 가이드</li>
+          <li>프로토타입 개선 실습</li>
         </ul>
       </div>
       <div class="col-card">
         <h3>수료 후 활용</h3>
         <ul>
           <li>3개월 무료 이용권 &rarr; 지속 실습</li>
-          <li>회사 직원에게 계정 확장 가능 (B2B)</li>
-          <li>셀프 스터디 &mdash; 강사 없이도 학습 지속</li>
+          <li>팀원용 실습 자동 생성 (조직 전파)</li>
+          <li>AI 튜터 기반 셀프 스터디</li>
         </ul>
       </div>
     </div>
@@ -924,6 +1104,7 @@
   <div class="container">
     <h2>AI를 아는 CEO가, AI 시대를 이끕니다</h2>
     <p>궁금하신 점이 있으시면 언제든 연락해주세요</p>
+    <a href="curriculum.html" style="display:inline-block; color:var(--accent); text-decoration:none; font-weight:600; font-size:15px; margin-bottom:20px;">12주 상세 커리큘럼 보기 &rarr;</a><br>
     <a href="mailto:gkhan@gpters.org" class="cta-btn">문의하기 &rarr;</a>
   </div>
 </section>
@@ -932,5 +1113,49 @@
   &copy; 2026 GPTers &middot; AI CEO 스쿨 제안서 &middot; Confidential
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  // Scroll reveal
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.sec,.sec--alt,.sec--dark,.cta-sec').forEach(el=>{
+    el.classList.add('reveal');obs.observe(el);
+  });
+
+  // Stagger children: cards, stat items, timeline items
+  document.querySelectorAll('.overview-grid,.stats-bar,.port-grid,.two-col,.timeline,.cur-table tbody').forEach(grid=>{
+    Array.from(grid.children).forEach(c=>c.classList.add('reveal-child'));
+  });
+
+  // Animated counter for stats
+  const countObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      e.target.querySelectorAll('.num').forEach(num=>{
+        const text=num.textContent;
+        const match=text.match(/([\d.]+)/);
+        if(!match)return;
+        const target=parseFloat(match[1]);
+        const isDecimal=match[1].includes('.');
+        const suffix=text.replace(match[1],'');
+        let start=0;
+        const dur=1200;
+        const st=performance.now();
+        const step=now=>{
+          const p=Math.min((now-st)/dur,1);
+          const ease=1-Math.pow(1-p,3);
+          const v=start+ease*(target-start);
+          num.innerHTML=(isDecimal?v.toFixed(1):Math.round(v))+suffix;
+          if(p<1)requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+      countObs.unobserve(e.target);
+    });
+  },{threshold:0.3});
+  document.querySelectorAll('.stats-bar').forEach(el=>countObs.observe(el));
+});
+</script>
 </body>
 </html>
