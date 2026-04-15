@@ -39,27 +39,27 @@
     display: inline-block;
     border: 1.5px solid var(--accent);
     color: var(--accent);
-    font-size: 13px;
+    font-size: 17px;
     font-weight: 700;
     padding: 5px 14px;
     border-radius: 100px;
     letter-spacing: 0.5px;
     margin-bottom: 20px;
   }
-  .cover h1 { font-size: 36px; font-weight: 800; line-height: 1.3; margin-bottom: 12px; }
+  .cover h1 { font-size: 47px; font-weight: 800; line-height: 1.3; margin-bottom: 12px; }
   .cover h1 span { color: var(--accent); }
-  .cover .subtitle { font-size: 16px; color: var(--gray-400); margin-bottom: 24px; }
-  .cover-meta { display: flex; justify-content: center; gap: 32px; font-size: 14px; color: var(--gray-400); }
+  .cover .subtitle { font-size: 21px; color: var(--gray-400); margin-bottom: 24px; }
+  .cover-meta { display: flex; justify-content: center; gap: 32px; font-size: 18px; color: var(--gray-400); }
   .cover-meta strong { color: var(--white); font-weight: 600; }
 
   /* Section */
   .sec { padding: 48px 40px; }
   .sec--alt { background: var(--gray-50); }
   .sec-label {
-    font-size: 12px; font-weight: 700; color: var(--accent);
+    font-size: 16px; font-weight: 700; color: var(--accent);
     text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px;
   }
-  .sec h2 { font-size: 24px; font-weight: 800; margin-bottom: 20px; }
+  .sec h2 { font-size: 31px; font-weight: 800; margin-bottom: 20px; }
 
   /* Phase header */
   .phase-section { margin-bottom: 40px; }
@@ -69,14 +69,15 @@
     margin-bottom: 20px;
   }
   .phase-badge {
-    display: inline-block; font-size: 11px; font-weight: 700;
+    display: inline-block; font-size: 14px; font-weight: 700;
     padding: 4px 12px; border-radius: 100px; letter-spacing: 0.3px;
   }
   .phase-badge--basic { background: #DBEAFE; color: #1D4ED8; }
   .phase-badge--mid { background: var(--accent-light); color: var(--accent); }
+  .phase-badge--strat { background: #DCFCE7; color: #15803D; }
   .phase-badge--adv { background: #F3E8FF; color: #7C3AED; }
-  .phase-title { font-size: 20px; font-weight: 700; }
-  .phase-weeks { font-size: 14px; color: var(--gray-400); margin-left: auto; }
+  .phase-title { font-size: 26px; font-weight: 700; }
+  .phase-weeks { font-size: 18px; color: var(--gray-400); margin-left: auto; }
 
   /* Session card */
   .session {
@@ -87,21 +88,21 @@
   .session-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
   .session-week {
     background: var(--accent-light); color: var(--accent);
-    font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 100px;
+    font-size: 16px; font-weight: 700; padding: 4px 10px; border-radius: 100px;
   }
-  .session-title { font-size: 17px; font-weight: 700; color: var(--dark); }
-  .session-desc { font-size: 14px; color: var(--gray-600); margin-bottom: 14px; line-height: 1.6; }
-  .session-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .session-title { font-size: 22px; font-weight: 700; color: var(--dark); }
+  .session-desc { font-size: 18px; color: var(--gray-600); margin-bottom: 14px; line-height: 1.6; }
+  .session-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
   .session-block h4 {
-    font-size: 12px; font-weight: 700; color: var(--gray-400);
+    font-size: 16px; font-weight: 700; color: var(--gray-400);
     text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;
   }
   .session-block ul { list-style: none; }
   .session-block li {
-    font-size: 14px; color: var(--gray-600); padding: 4px 0 4px 18px; position: relative;
+    font-size: 18px; color: var(--gray-600); padding: 4px 0 4px 18px; position: relative;
   }
   .session-block li::before {
-    content: "\25B8"; position: absolute; left: 0; color: var(--accent); font-size: 11px; top: 5px;
+    content: "\25B8"; position: absolute; left: 0; color: var(--accent); font-size: 14px; top: 5px;
   }
 
   /* Timetable */
@@ -111,17 +112,17 @@
   }
   .tt-header {
     background: var(--dark); color: var(--white);
-    padding: 14px 20px; font-size: 14px; font-weight: 700;
+    padding: 14px 20px; font-size: 18px; font-weight: 700;
   }
   .tt-row { display: flex; border-bottom: 1px solid var(--gray-200); }
   .tt-row:last-child { border-bottom: none; }
   .tt-time {
     width: 120px; flex-shrink: 0; padding: 12px 16px;
-    background: var(--gray-50); font-size: 13px; font-weight: 600; color: var(--gray-600);
+    background: var(--gray-50); font-size: 17px; font-weight: 600; color: var(--gray-600);
   }
   .tt-content { flex: 1; padding: 12px 16px; }
-  .tt-label { font-size: 14px; font-weight: 600; color: var(--dark); }
-  .tt-sub { font-size: 12px; color: var(--gray-400); margin-top: 2px; }
+  .tt-label { font-size: 18px; font-weight: 600; color: var(--dark); }
+  .tt-sub { font-size: 16px; color: var(--gray-400); margin-top: 2px; }
 
   /* Timetable grid for 3 types */
   .tt-grid {
@@ -129,13 +130,13 @@
   }
   .tt-grid .tt-box { margin-top: 0; }
   .tt-type-label {
-    font-size: 12px; font-weight: 700; color: var(--gray-400);
+    font-size: 16px; font-weight: 700; color: var(--gray-400);
     text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;
   }
 
   /* Session type badge */
   .session-type {
-    display: inline-block; font-size: 11px; font-weight: 700;
+    display: inline-block; font-size: 14px; font-weight: 700;
     padding: 3px 9px; border-radius: 100px; letter-spacing: 0.3px;
     background: #DCFCE7; color: #15803D;
   }
@@ -148,7 +149,7 @@
     background: var(--accent-light); border-left: 4px solid var(--accent);
     border-radius: 0 10px 10px 0; padding: 16px 20px; margin-top: 24px;
   }
-  .note p { font-size: 14px; color: var(--gray-600); margin: 0; }
+  .note p { font-size: 18px; color: var(--gray-600); margin: 0; }
   .note strong { color: var(--accent); }
 
   /* Tools roadmap */
@@ -162,23 +163,23 @@
   }
   .tools-roadmap-row:last-child { border-bottom: none; }
   .tools-phase-label {
-    flex-shrink: 0; width: 80px; font-size: 12px; font-weight: 700;
+    flex-shrink: 0; width: 80px; font-size: 16px; font-weight: 700;
     color: var(--accent); padding-top: 2px;
   }
-  .tools-desc { font-size: 14px; color: var(--gray-600); }
+  .tools-desc { font-size: 18px; color: var(--gray-600); }
 
   .footer {
     text-align: center; padding: 24px 40px;
-    font-size: 12px; color: var(--gray-400); border-top: 1px solid var(--gray-200);
+    font-size: 16px; color: var(--gray-400); border-top: 1px solid var(--gray-200);
   }
 
   @media (max-width: 640px) {
     .cover { padding: 40px 24px 32px; }
-    .cover h1 { font-size: 26px; }
+    .cover h1 { font-size: 34px; }
     .cover-meta { flex-direction: column; gap: 8px; }
     .sec { padding: 32px 20px; }
     .session-grid { grid-template-columns: 1fr; }
-    .tt-time { width: 90px; font-size: 11px; }
+    .tt-time { width: 90px; font-size: 14px; }
     .tt-grid { grid-template-columns: 1fr; }
   }
 
@@ -317,45 +318,45 @@
   <div class="container">
     <div class="cover-badge">CURRICULUM 2026</div>
     <h1><span>AI CEO</span> School<br>10주 커리큘럼</h1>
-    <div class="subtitle">이해하고 &rarr; 검증하고 &rarr; 확산한다 &mdash; 전사 AI 전환 커리큘럼</div>
+    <div class="subtitle">이해하고 &rarr; 직접 체감하고 &rarr; 조직에서 확산한다 &mdash; 전사 AI 전환 리더십 과정</div>
     <div class="cover-meta">
       <span>총 <strong>10회</strong></span>
       <span>주 1회 <strong>2시간 30분</strong></span>
-      <span>저녁 <strong>19:00~21:30</strong></span>
+      <span>저녁 <strong>18:00~20:30</strong></span>
     </div>
   </div>
 </section>
 
-<!-- Phase 1: 전환 전략 수립 -->
+<!-- Phase 1: AI 리더의 눈 -->
 <section class="sec">
   <div class="container">
     <div class="phase-section">
       <div class="phase-header">
         <span class="phase-badge phase-badge--basic">PHASE 1</span>
-        <span class="phase-title">전환 전략 수립</span>
-        <span class="phase-weeks">1~3주</span>
+        <span class="phase-title">AI 리더의 눈</span>
+        <span class="phase-weeks">1~2주</span>
       </div>
 
       <div class="session">
         <div class="session-top">
           <span class="session-week">Week 1</span>
-          <span class="session-title">AI 시대, 조직이 바뀌는 법</span>
+          <span class="session-title">AI 시대, CEO의 판단력</span>
         </div>
-        <div class="session-desc">CEO가 알아야 할 AI의 큰 그림과, 실제로 조직 전체를 바꾼 기업들의 전사 전환 사례를 봅니다.</div>
+        <div class="session-desc">CEO가 알아야 할 AI의 큰 그림과, 실제로 조직 전체를 바꾼 기업들의 의사결정 사례를 분석합니다.</div>
         <div class="session-grid">
           <div class="session-block">
             <h4>학습 내용</h4>
             <ul>
-              <li>생성형 AI &rarr; 에이전트 &rarr; 바이브코딩 &mdash; 3가지 변화의 흐름</li>
-              <li>AI Native 기업의 전사 전환 사례 (뤼튼, 업스테이지, 채널톡, 당근)</li>
+              <li>생성형 AI &rarr; 에이전트 &rarr; AI 업무 자동화 &mdash; 3가지 변화의 흐름</li>
+              <li>CEO 의사결정 케이스 스터디 &mdash; AI로 조직을 바꾼 기업 vs 기회를 놓친 기업</li>
               <li>CEO의 &ldquo;구축 / 구매 / 무시&rdquo; 의사결정 프레임워크</li>
             </ul>
           </div>
           <div class="session-block">
             <h4>산출물</h4>
             <ul>
-              <li>ChatGPT&middot;Claude로 경영 시나리오 3가지 체험</li>
-              <li>AI 기회 캔버스 초안 (템플릿)</li>
+              <li>ChatGPT&middot;Claude 첫 체험 &mdash; 경영 시나리오 3가지에 AI 적용</li>
+              <li>AI 기회 캔버스 초안 작성 (템플릿)</li>
               <li>업종별 테이블 토론 + 네트워킹</li>
             </ul>
           </div>
@@ -365,49 +366,23 @@
       <div class="session">
         <div class="session-top">
           <span class="session-week">Week 2</span>
-          <span class="session-title">전사 확산 &mdash; 우리 조직에 맞는 모델 찾기</span>
+          <span class="session-title">전사 확산 전략 설계</span>
         </div>
-        <div class="session-desc">AI를 조직에 퍼뜨리는 4가지 방법론을 배우고, 리스크를 이해한 뒤, 우리 조직의 확산 전략 초안을 세웁니다.</div>
+        <div class="session-desc">AI를 조직에 퍼뜨리는 방법론을 배우고, 리스크를 이해한 뒤, 우리 조직의 확산 전략 초안을 세웁니다.</div>
         <div class="session-grid">
           <div class="session-block">
             <h4>학습 내용</h4>
             <ul>
               <li>전사 확산 4가지 모델 &mdash; AI TF / 챔피언 / 전 직원 의무교육 / 파일럿&rarr;확대</li>
               <li>데이터 보안&middot;개인정보&middot;저작권&middot;환각 &mdash; CEO가 알아야 할 리스크</li>
-              <li>AI 거버넌스 &mdash; 도입 전 조직이 갖춰야 할 것</li>
+              <li>AI 거버넌스 기본 &mdash; 도입 전 조직이 갖춰야 할 것</li>
             </ul>
           </div>
           <div class="session-block">
             <h4>산출물</h4>
             <ul>
               <li>&ldquo;우리 조직 확산 전략 초안&rdquo; 작성 (템플릿)</li>
-              <li>파일럿 대상 부서 선정</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="session">
-        <div class="session-top">
-          <span class="session-week">Week 3</span>
-          <span class="session-title">ChatGPT를 넘어서 &mdash; Cowork으로 업무 워크플로우 만들기</span>
-        </div>
-        <div class="session-desc">ChatGPT 대화를 넘어, Cowork으로 반복 가능한 업무 워크플로우를 만듭니다. 향후 7주간 집중할 적용 업무를 확정합니다.</div>
-        <div class="session-grid">
-          <div class="session-block">
-            <h4>학습 내용</h4>
-            <ul>
-              <li>ChatGPT vs Cowork &mdash; 대화에서 워크플로우로의 전환</li>
-              <li>Cowork 소개 &mdash; CEO가 바로 쓸 수 있는 AI 데스크탑앱</li>
-              <li>프롬프트 설계 원칙 (역할, 맥락, 형식, 제약)</li>
-            </ul>
-          </div>
-          <div class="session-block">
-            <h4>산출물</h4>
-            <ul>
-              <li>Cowork 워크플로우 실습 (90분)</li>
-              <li>확산 대상 업무 Top 3 최종 확정</li>
-              <li>업무 후보별 리스크&middot;실현가능성 평가표</li>
+              <li>파일럿 대상 부서/업무 후보 선정</li>
             </ul>
           </div>
         </div>
@@ -417,36 +392,62 @@
   </div>
 </section>
 
-<!-- Phase 2: 도구 검증과 조직 적용 -->
+<!-- Phase 2: 직접 체감 -->
 <section class="sec sec--alt">
   <div class="container">
     <div class="phase-section">
       <div class="phase-header">
         <span class="phase-badge phase-badge--mid">PHASE 2</span>
-        <span class="phase-title">도구 검증과 조직 적용</span>
-        <span class="phase-weeks">4~7주</span>
+        <span class="phase-title">직접 체감</span>
+        <span class="phase-weeks">3~5주</span>
       </div>
 
       <div class="session">
         <div class="session-top">
-          <span class="session-week">Week 4</span>
-          <span class="session-title">Claude Code 실전 활용 &mdash; 보고서 분석 &amp; 리서치</span>
+          <span class="session-week">Week 3</span>
+          <span class="session-title">AI 도구 체험 &mdash; 어디까지 되는가</span>
         </div>
-        <div class="session-desc">대표가 매일 하는 일에 AI를 직접 써봅니다. &ldquo;이거 진짜 되네&rdquo;를 체감하는 주차.</div>
+        <div class="session-desc">ChatGPT/Claude를 넘어, Cowork으로 반복 가능한 업무 워크플로우를 만듭니다. &ldquo;이게 된다고?&rdquo; 순간을 직접 체험합니다.</div>
         <div class="session-grid">
           <div class="session-block">
             <h4>학습 내용</h4>
             <ul>
-              <li>보고서 검토 &mdash; 핵심 인사이트 추출 + 질문 목록 자동 생성</li>
-              <li>시장/경쟁사 자동 리서치 &mdash; 경쟁사 동향 모니터링 자동화</li>
-              <li>미팅 준비 자동화 &mdash; 상대 기업 분석 + 예상 질문 + 어젠다 초안</li>
+              <li>AI 도구 비교 &mdash; ChatGPT vs Claude vs Gemini, CEO의 선택 기준</li>
+              <li>Cowork 소개 &mdash; CEO가 바로 쓸 수 있는 AI 업무 도구</li>
+              <li>프롬프트 설계 원칙 &mdash; 역할, 맥락, 형식, 제약</li>
             </ul>
           </div>
           <div class="session-block">
             <h4>산출물</h4>
             <ul>
-              <li>Claude Code로 본인 업무 3가지에 AI 적용 실습 (90분)</li>
-              <li>&ldquo;가장 효과 있었던 활용법&rdquo; 1개 선정 &rarr; 프로토타입 v1</li>
+              <li><a href="https://rona.so/practice/d906d986-b5b0-40f7-ac4c-06342b2cb7b1" target="_blank" style="color:var(--accent); text-decoration:none;">Cowork 실습: 팀 보고서 AI 검토</a> (60분)</li>
+              <li>확산 대상 업무 Top 3 선정</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-top">
+          <span class="session-week">Week 4</span>
+          <span class="session-title">CEO 업무에 AI 적용 &mdash; &ldquo;이거 진짜 되네&rdquo;</span>
+        </div>
+        <div class="session-desc">대표가 매일 하는 일에 AI를 직접 써봅니다. 보고서 검토, 시장 리서치, 미팅 준비에 AI를 적용합니다.</div>
+        <div class="session-grid">
+          <div class="session-block">
+            <h4>학습 내용</h4>
+            <ul>
+              <li>보고서 검토 심화 &mdash; 재무제표&middot;매출 데이터 분석 + 이상치 탐지</li>
+              <li>시장/경쟁사 리서치 자동화 &mdash; 업계 AI 도입 현황 리포트 자동 생성</li>
+              <li>미팅 준비 자동화 &mdash; 거래처 분석 + 예상 질문 + 어젠다 초안</li>
+            </ul>
+          </div>
+          <div class="session-block">
+            <h4>산출물</h4>
+            <ul>
+              <li><a href="https://rona.so/practice/373b5a5b-3780-4264-a1cb-72dc23d8d1aa" target="_blank" style="color:var(--accent); text-decoration:none;">경쟁사 AI 도입 리서치 리포트</a> + 이사회 요약</li>
+              <li><a href="https://rona.so/practice/b5e608ca-aab2-43f4-b9af-27be55cc9bde" target="_blank" style="color:var(--accent); text-decoration:none;">미팅 브리핑 문서</a></li>
+              <li>&ldquo;가장 효과 있었던 활용법&rdquo; 1개 선정</li>
             </ul>
           </div>
         </div>
@@ -455,50 +456,63 @@
       <div class="session">
         <div class="session-top">
           <span class="session-week">Week 5</span>
-          <span class="session-title">Skill 만들기 + Claude Code</span>
+          <span class="session-title">AI 업무 자동화 &mdash; &ldquo;팀한테 이걸 주면...&rdquo;</span>
         </div>
-        <div class="session-desc">4주차에서 써본 것 중 반복되는 업무를 Skill로 만들어, &ldquo;나만 쓰는 것&rdquo;에서 &ldquo;팀이 쓰는 것&rdquo;으로 전환합니다.</div>
+        <div class="session-desc">체험한 것을 반복 가능한 워크플로우로 만들고, 팀에 배포할 수 있는 형태로 발전시킵니다.</div>
         <div class="session-grid">
           <div class="session-block">
             <h4>학습 내용</h4>
             <ul>
-              <li>Skill이란? &mdash; 반복 업무를 패키징해서 누구나 쓸 수 있게 만드는 단위</li>
-              <li>Claude Code + 에이전트 체험 &mdash; &ldquo;지시하면 알아서 실행하는 AI&rdquo;</li>
-              <li>Cowork vs Claude Code &mdash; 각각 언제 쓰는가</li>
+              <li>&ldquo;한 번 쓰는 AI&rdquo;에서 &ldquo;반복 가능한 워크플로우&rdquo;로 전환</li>
+              <li>프롬프트 템플릿 설계 &mdash; 입력만 바꾸면 누구나 같은 품질</li>
+              <li>AI 자동화 수준 3단계 &mdash; CEO만 쓰는 것 &rarr; 팀이 쓰는 것 &rarr; 자동으로 도는 것</li>
             </ul>
           </div>
           <div class="session-block">
             <h4>산출물</h4>
             <ul>
-              <li>Claude Code 체험 실습 (60분)</li>
-              <li>Skill 설계서 &mdash; 이름, 입력, 출력, 대상 사용자 정의</li>
-              <li>프로토타입 v2 (Skill 형태로 업그레이드)</li>
+              <li>워크플로우 제작 실습 (60분)</li>
+              <li>&ldquo;우리 팀 AI 워크플로우 Top 3&rdquo; 설계서</li>
             </ul>
           </div>
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- Phase 3: 전략과 판단 -->
+<section class="sec">
+  <div class="container">
+    <div class="phase-section">
+      <div class="phase-header">
+        <span class="phase-badge phase-badge--strat">PHASE 3</span>
+        <span class="phase-title">전략과 판단</span>
+        <span class="phase-weeks">6~7주</span>
+      </div>
+
       <div class="session">
         <div class="session-top">
           <span class="session-week">Week 6</span>
-          <span class="session-title">Claude Code &mdash; 조직 확산 설계 + ROI</span>
+          <span class="session-title">AI 도입 의사결정 + ROI</span>
         </div>
-        <div class="session-desc">만든 Skill을 어떤 부서에, 어떤 순서로 퍼뜨릴지 설계하고, 투자 대비 효과를 측정합니다.</div>
+        <div class="session-desc">워크플로우를 조직에 어떻게 확산할지, 투자 대비 효과를 어떻게 측정할지 의사결정을 내립니다.</div>
         <div class="session-grid">
           <div class="session-block">
             <h4>학습 내용</h4>
             <ul>
-              <li>Skill 공유 체계 설계 &mdash; 누가 만들고, 누가 쓰고, 누가 관리하는가</li>
-              <li>부서별 배포 전략 &mdash; 파일럿 &rarr; 확대 로드맵</li>
+              <li>구축 vs 구매 vs 파트너십 &mdash; AI 도입 의사결정 프레임워크</li>
               <li>ROI 산출법 &mdash; 도입 전/후 비용 비교, 시간 절감 측정</li>
+              <li>AI 예산 편성 &mdash; 도구 비용, 인력 비용, 교육 비용의 구조</li>
             </ul>
           </div>
           <div class="session-block">
             <h4>산출물</h4>
             <ul>
-              <li>Claude Code + ROI 산출 워크숍 (60분)</li>
-              <li>Skill Top 5 설계서 + 부서별 배포 계획 + ROI 표</li>
-              <li>확산 전략 업데이트 &rarr; v2</li>
+              <li>ROI 산출 워크숍 (60분) &rarr; ROI 표 완성</li>
+              <li>구축/구매/파트너십 의사결정서 초안</li>
+              <li>확산 전략 v2 업데이트</li>
             </ul>
           </div>
         </div>
@@ -523,7 +537,7 @@
             <h4>산출물</h4>
             <ul>
               <li>그룹 내 발표 &rarr; Best-of 쇼케이스</li>
-              <li>전문가 피드백 + Phase 3 개선 목표 설정</li>
+              <li>전문가 피드백 + Phase 4 개선 목표 설정</li>
             </ul>
           </div>
         </div>
@@ -533,12 +547,12 @@
   </div>
 </section>
 
-<!-- Phase 3: 확산 완성 -->
-<section class="sec">
+<!-- Phase 4: 확산 완성 -->
+<section class="sec sec--alt">
   <div class="container">
     <div class="phase-section">
       <div class="phase-header">
-        <span class="phase-badge phase-badge--adv">PHASE 3</span>
+        <span class="phase-badge phase-badge--adv">PHASE 4</span>
         <span class="phase-title">확산 완성</span>
         <span class="phase-weeks">8~10주</span>
       </div>
@@ -546,22 +560,22 @@
       <div class="session">
         <div class="session-top">
           <span class="session-week">Week 8</span>
-          <span class="session-title">Skill 개선 + 게스트 CEO</span>
+          <span class="session-title">게스트 CEO 특강 + AI 거버넌스</span>
         </div>
-        <div class="session-desc">피드백을 반영하여 Skill을 개선하고, 실제로 전사 AI 도입에 성공한 CEO의 이야기를 듣습니다.</div>
+        <div class="session-desc">전사 AI 도입에 성공한 CEO의 이야기를 듣고, AI를 안전하게 쓰기 위한 거버넌스를 설계합니다.</div>
         <div class="session-grid">
           <div class="session-block">
             <h4>학습 내용</h4>
             <ul>
-              <li>Skill 개선 전략 &mdash; &ldquo;CEO만 쓰는 것 vs 팀 전체가 쓸 수 있는 것&rdquo;</li>
-              <li>게스트 CEO 특강 &mdash; AI 전사 도입 성공 사례 + Q&amp;A</li>
+              <li>게스트 CEO 특강 &mdash; 전사 AI 도입 성공 여정 + Q&amp;A</li>
+              <li>AI 거버넌스 설계 &mdash; AI 사용 정책, 데이터 보안, 품질 관리</li>
             </ul>
           </div>
           <div class="session-block">
             <h4>산출물</h4>
             <ul>
-              <li>Skill 개선 워크숍 (60분 실습)</li>
-              <li>개선된 Skill + 부서별 확산 실험 결과 정리</li>
+              <li>&ldquo;우리 조직 AI 사용 정책&rdquo; 초안</li>
+              <li>게스트 CEO와 네트워킹</li>
             </ul>
           </div>
         </div>
@@ -572,20 +586,20 @@
           <span class="session-week">Week 9</span>
           <span class="session-title">확산 회고 + 로드맵 재설계</span>
         </div>
-        <div class="session-desc">실제 전사 적용 경험에서 출발합니다. 부서별 확산의 성공/실패를 돌아보고 전략을 재설계합니다.</div>
+        <div class="session-desc">전사 적용 경험을 돌아보고, 전략을 재설계합니다.</div>
         <div class="session-grid">
           <div class="session-block">
             <h4>학습 내용</h4>
             <ul>
-              <li>부서별 확산 결과 회고 &mdash; 무엇이 됐고, 무엇이 안 됐는가</li>
-              <li>직원 저항 극복 &mdash; 변화 관리 3가지 전략</li>
+              <li>부서별 확산 결과 회고 &mdash; 성공 요인 vs 실패 요인</li>
+              <li>변화 관리 리더십 &mdash; 직원 저항을 넘는 3가지 전략</li>
               <li>AI 전담팀 vs 전사 내재화 &mdash; 우리에게 맞는 다음 단계</li>
             </ul>
           </div>
           <div class="session-block">
             <h4>산출물</h4>
             <ul>
-              <li>전사 확산 로드맵 v3 (3/6/12개월)</li>
+              <li>전사 확산 로드맵 (3/6/12개월)</li>
               <li>피어 리뷰 &mdash; CEO끼리 확산 로드맵 리뷰 + 보강</li>
             </ul>
           </div>
@@ -598,15 +612,15 @@
           <span class="session-type session-type--pres">발표</span>
           <span class="session-title">최종 발표 + 수료</span>
         </div>
-        <div class="session-desc">10주간의 전사 AI 전환 여정을 정리하고, 실제 결과를 발표합니다.</div>
+        <div class="session-desc">10주간의 전사 AI 전환 여정을 AI 전환 플레이북으로 정리하고 발표합니다.</div>
         <div class="session-grid">
           <div class="session-block">
             <h4>학습 내용 (발표 항목)</h4>
             <ul>
-              <li>AI 도입 배경과 목표</li>
-              <li>CEO가 직접 활용한 사례와 결과</li>
+              <li>AI 도입 배경과 전략적 목표</li>
+              <li>CEO가 직접 체감한 AI 활용 사례와 결과</li>
               <li>조직 확산 현황 &mdash; 몇 개 부서, 몇 명이 쓰고 있는가</li>
-              <li>ROI 분석 + 향후 12개월 로드맵</li>
+              <li>ROI 분석 + 향후 12개월 투자 계획</li>
             </ul>
           </div>
           <div class="session-block">
@@ -625,22 +639,26 @@
 </section>
 
 <!-- Tools Roadmap -->
-<section class="sec sec--alt">
+<section class="sec">
   <div class="container">
     <div class="sec-label">Tools Roadmap</div>
     <h2>단계별 도구 여정</h2>
     <div class="tools-roadmap">
       <div class="tools-roadmap-row">
         <div class="tools-phase-label">Phase 1</div>
-        <div class="tools-desc">ChatGPT&middot;Claude &rarr; Cowork</div>
+        <div class="tools-desc">ChatGPT&middot;Claude (체험) &mdash; 1~2주</div>
       </div>
       <div class="tools-roadmap-row">
         <div class="tools-phase-label">Phase 2</div>
-        <div class="tools-desc">Claude Code &rarr; Skill 만들기 &rarr; 조직 배포</div>
+        <div class="tools-desc">Cowork (실습 중심) &mdash; 3~5주</div>
       </div>
       <div class="tools-roadmap-row">
         <div class="tools-phase-label">Phase 3</div>
-        <div class="tools-desc">Claude Code &rarr; AI 실습 플랫폼 (팀 교육)</div>
+        <div class="tools-desc">전략 워크숍 중심 &mdash; 6~7주</div>
+      </div>
+      <div class="tools-roadmap-row">
+        <div class="tools-phase-label">Phase 4</div>
+        <div class="tools-desc">전략&middot;발표 중심 &mdash; 8~10주</div>
       </div>
     </div>
   </div>
